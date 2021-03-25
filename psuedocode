@@ -1,0 +1,28 @@
+Horoscope
+This site is created to give thier users a current up to date horoscope.
+This will also keep record of previous requested horoscopes.
+The user views the sites intro page consisted of standard horoscope info and themes
+then the user presses the the next page button which takes them to a log in page that takes thier data and stores it for the
+next time.
+The user is able to view all previous dates and days a horoscope was viewed.
+We will be bringing in a an astrology api and using our own database consisting of previous inquiries.
+The site will allow navagation to each page and allow user to re input new data once done.
+
+Name Of Site:
+
+--- user navagation---
+1st page Intro Page 
+2nd page User Input (They can create a log in or Use current one)
+3rd page User profile (shows list of previous searched horoscopes and users info at top of page )
+4th page If user decides to view previous horoscope
+---6 to 7 handlebars needed---
+
+Team Members
+
+Courtney
+
+Daniel routes/controller folder
+
+Tom EVERYTHING
+
+Bebe
