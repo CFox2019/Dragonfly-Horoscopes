@@ -5,4 +5,7 @@ const horoscopeRoutes = require("./horoscopeRoutes");
 router.use("/users", userRoutes);
 router.use("/horoscopes", horoscopeRoutes);
 
+
+
+
 module.exports = router;

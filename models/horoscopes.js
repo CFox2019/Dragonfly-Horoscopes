@@ -4,10 +4,9 @@ const sequelize = require('../config/connection');
 class Horoscope extends Model { }
 
 
-//CHANGE THIS MODEL.
-//Do you want to track your users by first name AND last name?
-//Do you want a username column in addition to email?
-//Is there anything else about your user your application requires you to keep track of?
+// This Model is for the Horoscope table
+// Allows the users info to be stored and then with password access they are able to be view previous searches.
+// So this Basically creates a Personal Profile for the User
 Horoscope.init(
   {
     id: {
