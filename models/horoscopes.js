@@ -1,18 +1,13 @@
 const { Model, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
-class User extends Model {
-  checkPassword(loginPw) {
-    return bcrypt.compareSync(loginPw, this.password);
-  }
-}
+class Horoscope extends Model { }
 
-//CHANGE THIS MODEL.
-//Do you want to track your users by first name AND last name?
-//Do you want a username column in addition to email?
-//Is there anything else about your user your application requires you to keep track of?
-User.init(
+
+// This Model is for the Horoscope table
+// Allows the users info to be stored and then with password access they are able to be view previous searches.
+// So this Basically creates a Personal Profile for the User
+Horoscope.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -37,13 +32,28 @@ User.init(
         isEmail: true,
       },
     },
-    password: {
+    horoscope: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        len: [8],
+      unique: false,
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+      reference : {
+        model : "user",
+        key : "id"
       },
     },
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: [8],
+        },
+      },
   },
   {
     hooks: {
@@ -59,12 +69,13 @@ User.init(
         return updatedUserData;
       },
     },
+  },
+  {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'user',
-  }
+    modelName: 'horoscoope',
+  },
 );
-
-module.exports = User;
+module.exports = Horoscope;
