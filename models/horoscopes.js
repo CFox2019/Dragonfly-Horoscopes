@@ -19,7 +19,6 @@ Horoscope.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-
     last_name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -41,7 +40,6 @@ Horoscope.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
       reference : {
         model : "user",
         key : "id"
@@ -69,13 +67,11 @@ Horoscope.init(
         return updatedUserData;
       },
     },
-  },
-  {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'horoscoope',
+    modelName: 'horoscope',
   },
 );
 module.exports = Horoscope;
