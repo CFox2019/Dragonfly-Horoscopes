@@ -29,3 +29,13 @@ a:active {
 main {
   margin: auto;
 }
+
+h2 {
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.form-group {
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+}
