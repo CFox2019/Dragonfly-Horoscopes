@@ -19,10 +19,59 @@ Name Of Site:
 
 Team Members
 
-Courtney
+Courtney- 
+views folder
+handlebars for front end
+get background info
+layouts for 4 pages 
+(send variables to Courtney)
 
-Daniel routes/controller folder
+
+Daniel 
+Backend
+routes/controller folder
+post request 
+get request 
 
 Tom EVERYTHING
 
-Bebe
+Bebe-
+backend 
+model folder 
+create associations
+api request?? 
+astrology link??
+(post in Slack once found)
+
+Data Model 
+
+User 
+    -id
+    -first Name 
+    -last Name
+    -email
+    -password
+    -birthday
+    -sign_id (fk to Sign, user has one sign)
+
+Sign (Static Data)
+    -id
+    -name (example: Capricorn)
+
+Horoscope (Historical data)
+    -id
+    -text
+    -sign_id (fk to Sign, horoscope has one sign)
+    -date (NOT date/time, JUST date, unique)
+
+BONUS BONUS BONUS Model: APICallResults
+    -id
+    -date
+    -success
+
+logic ---
+1. set up a recurring process that requests horoscopes from our api every days
+2. use the responses to create a horiscope record for each sign with a date = today's date
+3. when a user logs on to the site, we (using a GET request) query our horiscope table to show them their horiscope: 
+    SELECT text FROM horoscope WHERE date = (current date) AND sign_id = (req.session.sign_id);
+    
