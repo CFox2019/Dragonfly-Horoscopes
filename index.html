@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1> DRagon flies</h1>
+    <script> 
+
+    // $(document).ready(function() {
+
+    
+
+// const settings = {
+// 	"async": true,
+// 	"crossDomain": true,
+// 	"url": "https://horoscope5.p.rapidapi.com/career/daily?sign=cancer&date=2020-04-02",
+// 	"method": "GET",
+// 	"headers": {
+// 		"x-rapidapi-key": "943065a783msh88656ce48d8ab8bp1c60dbjsn72e4fa775bb4",
+// 		"x-rapidapi-host": "horoscope5.p.rapidapi.com"
+// 	}
+// };
+
+   
+// $.ajax(settings).done(function (response) {
+// 	console.log(response);
+// });
+
+// });  
+fetch("https://horoscope5.p.rapidapi.com/general/daily?sign=cancer&date=2021-05-02", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-key": "943065a783msh88656ce48d8ab8bp1c60dbjsn72e4fa775bb4",
+		"x-rapidapi-host": "horoscope5.p.rapidapi.com"
+	}
+})
+.then(response => {
+	
+    return response.json();
+
+})
+.catch(err => {
+	console.error(err);
+})
+.then(function(data) {
+    //   var userid = data.json();
+      console.log(data.sign.birthday);
+     
+    });
+        </script>
+</body>
+
+</html>
