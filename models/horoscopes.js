@@ -15,43 +15,30 @@ Horoscope.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    first_name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    last_name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    email: {
+    
+    text: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
-      validate: {
-        isEmail: true,
-      },
+     
     },
-    horoscope: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: false,
-    },
-    user_id: {
+    sign_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      primaryKey: true,
-      reference : {
-        model : "user",
-        key : "id"
+      references: {
+        model: "sign",
+        key: "id",
       },
+
+    date: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      unique : true,
+      validate : {
+      isDate : true
+      }
     },
-      password: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [8],
-        },
-      },
+  }
   },
   {
     hooks: {

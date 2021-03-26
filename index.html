@@ -1,58 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <title>Document</title>
-</head>
-<body>
-    <h1> DRagon flies</h1>
-    <script> 
-
-    // $(document).ready(function() {
-
-    
-
-// const settings = {
-// 	"async": true,
-// 	"crossDomain": true,
-// 	"url": "https://horoscope5.p.rapidapi.com/career/daily?sign=cancer&date=2020-04-02",
-// 	"method": "GET",
-// 	"headers": {
-// 		"x-rapidapi-key": "943065a783msh88656ce48d8ab8bp1c60dbjsn72e4fa775bb4",
-// 		"x-rapidapi-host": "horoscope5.p.rapidapi.com"
-// 	}
-// };
-
    
-// $.ajax(settings).done(function (response) {
-// 	console.log(response);
-// });
+    <meta charset="UTF-8">
+    <meta content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <title>Document</title>
 
-// });  
-fetch("https://horoscope5.p.rapidapi.com/general/daily?sign=cancer&date=2021-05-02", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-key": "943065a783msh88656ce48d8ab8bp1c60dbjsn72e4fa775bb4",
-		"x-rapidapi-host": "horoscope5.p.rapidapi.com"
-	}
-})
-.then(response => {
-	
-    return response.json();
+</head>
 
-})
-.catch(err => {
-	console.error(err);
-})
-.then(function(data) {
-    //   var userid = data.json();
-      console.log(data.sign.birthday);
-     
-    });
-        </script>
+<body>
+    <h1> Dragon flies Horoscope</h1>
+    <table class="table">
+
+        <tbody>
+            <tr>
+
+            </tr>
+            <!-- Insert additional movie rows here -->
+        </tbody>
+    </table>
+
+    <script>
+        // const userBirthday = document.getElementById('#birthday');
+        const userFirstName = document.getElementById('#first-Name');
+        const userLastName = document.getElementById('#last-Name');
+        const userEmail = document.getElementById('#email');
+        const userPassword = document.getElementById('#password');
+        const userYear = document.getElementById('#year');
+        // const userSign = document.getElementById('#sign');
+
+        // DAILY
+
+
+        // I decided to hard code these values to ensure app was working 
+        const userSign = "aries"
+        const userBirthday = "1998/04/10"
+
+        fetch(`https://horoscope5.p.rapidapi.com/general/daily?sign=${userSign}&date=${userBirthday}`, {
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-key": "943065a783msh88656ce48d8ab8bp1c60dbjsn72e4fa775bb4",
+                "x-rapidapi-host": "horoscope5.p.rapidapi.com"
+            }
+        })
+            .then(response => {
+
+                return response.json();
+
+            })
+            .catch(err => {
+                console.error(err);
+            })
+            .then(function (dailyData) {
+                console.log(dailyData);
+                var tBody = $("tbody");
+                var tRow = $("<tr>");
+
+
+                var currentSign = $("<td>").text(dailyData.sign.name);
+                var currentBirthday = $("<td>").text(dailyData.sign.birthday);
+                var currentHoroscope = $("<td>").text(dailyData.result.description);
+                // Append the newly created table data to the table row
+                tRow.append(currentSign, currentBirthday, currentHoroscope);
+                // Append the table row to the table body
+                tBody.append(tRow);
+            });
+
+
+        // WEEKLY
+
+        // fetch(`https://horoscope5.p.rapidapi.com/general/weekly?sign=${userSign}&date=${userBirthday}`, {
+        //     "method": "GET",
+        //     "headers": {
+        //         "x-rapidapi-key": "943065a783msh88656ce48d8ab8bp1c60dbjsn72e4fa775bb4",
+        //         "x-rapidapi-host": "horoscope5.p.rapidapi.com"
+        //     }
+        // })
+        //     .then(response => {
+        //         return response.json();
+        //     })
+        //     .catch(err => {
+        //         console.error(err);
+        //     })
+        //     .then(function (weeklyData) {
+        //         console.log(weeklyData);
+
+        //     });
+
+        // // YEARLY
+
+        // fetch(`https://horoscope5.p.rapidapi.com/general/yearly?sign=${userSign}&year=2020`, {
+        //     "method": "GET",
+        //     "headers": {
+        //         "x-rapidapi-key": "943065a783msh88656ce48d8ab8bp1c60dbjsn72e4fa775bb4",
+        //         "x-rapidapi-host": "horoscope5.p.rapidapi.com"
+        //     }
+        // })
+        //     .then(response => {
+        //         return response.json();
+        //     })
+        //     .catch(err => {
+        //         console.error(err);
+        //     })
+        //     .then(function (yearlyData) {
+        //         console.log(yearlyData);
+
+        //     });
+
+    </script>
 </body>
 
 </html>

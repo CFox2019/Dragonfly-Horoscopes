@@ -44,6 +44,18 @@ User.init(
         len: [8],
       },
     },
+    birthday: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      unique: true,
+      validate: {
+        isDate: true,
+      },
+    },
+    sign_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
   },
   {
     hooks: {
