@@ -7,20 +7,20 @@
   z-index: -1;
 ;}
 
-header h1{
+header h1 {
   font-family: 'Orbitron', sans-serif;
 }
 
-h1{
+h1 {
   color: #fff;
   font-family: 'Orbitron', sans-serif;
 }
 
-a,
-a:link,
-a:visited,
-a:hover,
-a:active {
+header a,
+header a:link,
+header a:visited,
+header a:hover,
+header a:active {
   color: #fff;
   text-decoration: none;
   font-size: 1.5em;
@@ -38,4 +38,14 @@ h2 {
 .form-group {
   color: #fff;
   font-family: 'Orbitron', sans-serif;
+}
+
+#profile-container {
+  padding: 50px;
+}
+
+#loggedin-btns {
+  color:#fff;
+  font-family: 'Orbitron', sans-serif;
+  padding: 10px;
 }
