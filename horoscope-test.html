@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-   
+
     <meta charset="UTF-8">
     <meta content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,8 +38,10 @@
 
         // I decided to hard code these values to ensure app was working 
         const userSign = "aries"
-        const userBirthday = "1998/04/10"
+        const userBirthday = "2020/03/27"
 
+        
+       
         fetch(`https://horoscope5.p.rapidapi.com/general/daily?sign=${userSign}&date=${userBirthday}`, {
             "method": "GET",
             "headers": {

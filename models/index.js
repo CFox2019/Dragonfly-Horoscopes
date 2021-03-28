@@ -1,12 +1,18 @@
 const User = require('./User');
-const Horoscope = require('./horoscopes');
+const Horoscope = require('./Horoscopes');
+const Sign = require('./Sign');
 
-module.exports = { User, Horoscope };
 
 User.hasMany(Horoscope,{
-foreignKey: 'user'
+onDelete: "cascade"
 });
-
-Horoscope.hasMany(User, {
-    foreignKey: ''
+// try belongsTo
+Horoscope.belongTo(User, {
+    foreignKey: 'user'
 })
+
+Sign.hasMany(Horoscope,{
+foreignKey: 'horoscope'
+})
+
+module.exports = { User, Horoscope, Sign };

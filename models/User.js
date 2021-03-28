@@ -19,6 +19,10 @@ User.init(
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
+      references: {
+        model: "user",
+        key: "id",
+      },
     },
     first_name: {
       type: DataTypes.STRING,

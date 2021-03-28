@@ -14,6 +14,7 @@ Horoscope.init(
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
+      
     },
     
     text: {
@@ -29,6 +30,7 @@ Horoscope.init(
         model: "sign",
         key: "id",
       },
+      
 
     date: {
       type: DataTypes.INTEGER,

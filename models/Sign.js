@@ -14,6 +14,10 @@ Sign.init(
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
+            references: {
+                model: "horoscope",
+                key: "id",
+              },
         },
 
         name: {
@@ -30,3 +34,4 @@ Sign.init(
     
 });
 
+module.exports = Sign;
