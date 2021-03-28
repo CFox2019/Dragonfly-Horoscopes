@@ -19,6 +19,10 @@ User.init(
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
+      references: {
+        model: "user",
+        key: "id",
+      },
     },
     first_name: {
       type: DataTypes.STRING,
@@ -43,6 +47,18 @@ User.init(
       validate: {
         len: [8],
       },
+    },
+    birthday: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      unique: true,
+      validate: {
+        isDate: true,
+      },
+    },
+    sign_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
   },
   {

@@ -21,6 +21,7 @@
     "express-session": "^1.17.1",
     "js-datepicker": "^5.18.0",
     "mysql2": "^2.2.5",
+    "node-fetch": "^2.6.1",
     "sequelize": "^6.3.5"
   },
   "devDependencies": {
