@@ -1,7 +1,52 @@
 #myVideo {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%; 
-    min-height: 100%;
-  }
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+;}
+
+header h1{
+  font-family: 'Orbitron', sans-serif;
+}
+
+h1 {
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+}
+
+header a,
+header a:link,
+header a:visited,
+header a:hover,
+header a:active {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.5em;
+};
+
+main {
+  margin: auto;
+}
+
+h2 {
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.form-group {
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+}
+
+#profile-container {
+  padding: 50px;
+}
+
+#loggedin-btns {
+  color:#fff;
+  font-family: 'Orbitron', sans-serif;
+  padding: 10px;
+}
+

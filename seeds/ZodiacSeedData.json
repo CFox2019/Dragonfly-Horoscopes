@@ -1,0 +1,51 @@
+[
+  {
+    "Zodiac_name": "Aquaries",
+    "Date":  "January 20 - February 18"
+  },
+  {
+    "Zodiac_name": "Pisces",
+    "Date": "February 19 - March 20"
+  },
+  {
+    "Zodiac_name": "Aries",
+    "Date": "March 21 - April 19"
+  },
+  {
+    "Zodiac_name": "Taurus",
+    "Date": "April 20 - May 20"
+  },
+  {
+    "Zodiac_name": "Gemini",
+    "Date": "May 21 - June 20"
+  },
+  {
+    "Zodiac_name": "Cancer",
+    "Date":  "June 21 - July 22"
+  },
+  {
+    "Zodiac_name": "Leo",
+    "Date": "July 23 - August 22"
+  },
+  {
+    "Zodiac_name": "Virgo",
+    "Date": "August 23 - Setember 22"
+  },
+  {
+    "Zodiac_name": "Libra",
+    "Date": "September 22 - October 22"
+  },
+  {
+    "Zodiac_name": "Scorpio",
+    "Date": "October 23 - November 21"
+  },
+  {
+    "Zodiac_name": "Sagittarius",
+    "Date": "November 22 - December 21"
+  },
+  {
+    "Zodiac_name": "Capircorn",
+    "Date": "December 22 - January 19"
+  }
+
+]
