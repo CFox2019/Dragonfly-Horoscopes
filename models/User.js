@@ -28,7 +28,10 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-
+    sign: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     last_name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -47,19 +50,7 @@ User.init(
       validate: {
         len: [8],
       },
-    },
-    birthday: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      unique: true,
-      validate: {
-        isDate: true,
-      },
-    },
-    sign_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
+    }
   },
   {
     hooks: {
