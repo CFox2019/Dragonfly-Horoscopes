@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Horoscope, Sign, User } = require('../../models');
 const getHoroscopes = require('../../utils/getHoroscope');
 
+
 router.get('/:signId/:date', async (req, res) => {
     const signId = req.params.signId;
     const date = req.params.date;
@@ -15,9 +16,10 @@ router.get('/:signId/:date', async (req, res) => {
 
     try {
         const dailyData = await Horoscope.findOne({
+         include: { User, Sign},   
             where: {
                 sign_id: req.body.id,
-                date = req.body.date
+                date: req.body.date,
             }
         },
             res.send(dailyData),
@@ -32,7 +34,7 @@ router.get('/:signId/:date', async (req, res) => {
 
             res.send(horoscopeEntry);
             res.send(data.date)
-           res.send(data.sign)
+            res.send(data.sign)
             }
 
             // const newDaily = newHoroscope
@@ -46,5 +48,5 @@ router.get('/:signId/:date', async (req, res) => {
         res.status(400).json(err);
     }
 }
-});
+);
 
