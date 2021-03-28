@@ -24,7 +24,7 @@ Horoscope.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: "sign",
+        model: "user",
         key: "id",
       },
     }
@@ -34,7 +34,7 @@ Horoscope.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'horoscope',
+    modelName: 'Horoscope',
   },
 );
 module.exports = Horoscope;
