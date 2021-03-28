@@ -24,11 +24,11 @@ User.init(
         key: "id",
       },
     },
-    first_name: {
+    sign: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    sign: {
+    first_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
