@@ -4,7 +4,6 @@ const horoscopeRoutes = require("./horoscopeRoutes");
 
 router.use("/users", userRoutes);
 // router.use("/horoscopes", horoscopeRoutes);
-// router.use("/sign", signRoutes);
 
 
 
