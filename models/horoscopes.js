@@ -34,7 +34,7 @@ Horoscope.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'Horoscope',
+    modelName: 'horoscope',
   },
 );
 module.exports = Horoscope;

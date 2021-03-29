@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Horoscope, Sign, User } = require('../../models');
+const { Horoscope, User } = require('../../models');
 const getHoroscopes = require('../../utils/getHoroscope');
 
 
@@ -36,12 +36,10 @@ router.get('/:signId/:date', async (req, res) => {
             res.send(data.date)
             res.send(data.sign)
             }
-
             // const newDaily = newHoroscope
                 // .then(newHoroscope)
                 //     res.send(data.date)
                 //     res.send(data.sign)
-
          } catch (err) {
         res.status(400).json(err);
     }
