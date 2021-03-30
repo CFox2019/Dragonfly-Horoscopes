@@ -15,8 +15,12 @@ Horoscope.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    date: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
     horoscope: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
       unique: false,
     },
@@ -35,6 +39,14 @@ Horoscope.init(
     freezeTableName: true,
     underscored: true,
     modelName: 'horoscope',
+    indexes: [
+      {
+          name: 'unique_date_user_id_index',
+          unique: true,
+          fields: ['date', 'user_id']
+      }
+  ],
   },
 );
+
 module.exports = Horoscope;
