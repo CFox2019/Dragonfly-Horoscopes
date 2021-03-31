@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Zodiac, Traveller, Trip } = require('../../models');
+const { Zodiac } = require('../../models');
 
 // GET all Zodiac Horoscopes
 router.get('/', async (req, res) => {
