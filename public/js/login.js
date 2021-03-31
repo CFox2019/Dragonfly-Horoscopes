@@ -115,40 +115,40 @@ const getUserSign = (birthday) => {
 
   if (birthday >= ariesStart && birthday <= ariesEnd) {
     console.log("Aries");
-    return 'Aries'
+    return 'Aries';
   } else if (birthday >= taurusStart && birthday <= taurusEnd)  {
     console.log("Taurus");
-    return 'Taurus'
+    return 'Taurus';
   } else if (birthday >= geminiStart && birthday <= geminiEnd)  {
     console.log("Gemini");
-    return 'Gemini'
+    return 'Gemini';
   } else if (birthday >= cancerStart && birthday <= cancerEnd)  {
     console.log("Cancer");
-    return 'Cancer'
+    return 'Cancer';
   } else if (birthday >= leoStart && birthday <= leoEnd)  {
     console.log("Leo");
-    return 'Leo'
+    return 'Leo';
   } else if (birthday >= virgoStart && birthday <= virgoEnd)  {
     console.log("Virgo");
-    return 'Virgo'
+    return 'Virgo';
   } else if (birthday >= libraStart && birthday <= libraEnd)  {
     console.log("Libra");
-    return 'Libra'
+    return 'Libra';
   } else if (birthday >= scorpioStart && birthday <= scorpioEnd)  {
     console.log("Scorpio");
-    return 'Scorpio'
+    return 'Scorpio';
   } else if (birthday >= sagittariusStart && birthday <= sagittariusEnd)  {
     console.log("Sagittarius");
-    return 'Sagittarius'
+    return 'Sagittarius';
   } else if (birthday >= capricornStart && birthday <= capricornEnd)  {
     console.log("Capricorn");
-    return 'Capricorn'
+    return 'Capricorn';
   } else if (birthday >= aquariusStart && birthday <= aquariusEnd)  {
     console.log("Aquarius");
-    return 'Aquarius'
+    return 'Aquarius';
   } else if (birthday >= piscesStart && birthday <= piscesEnd)  {
     console.log("Pisces");
-    return 'Pisces'
+    return 'Pisces';
   }
 };
 

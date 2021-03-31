@@ -1,6 +1,7 @@
 const router = require("express").Router();
-const { Project, User } = require("../models");
+const { User } = require("../models");
 const withAuth = require("../utils/auth");
+const fetch = require("node-fetch");
 
 router.get("/", async (req, res) => {
   try {
@@ -19,11 +20,20 @@ router.get("/profile", withAuth, async (req, res) => {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
     });
-
     const user = userData.get({ plain: true });
+
+    // 1) Call the /api/horoscopes/:date endpoint to get the horoscope
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = ("0" + (date.getMonth() + 1)).slice(-2);
+    const day = date.getDate();
+    const horoscopeResponse = await fetch(`http://localhost:3001/api/users/${req.session.user_id}/horoscopes/${year}-${month}-${day}`);
+    const { horoscope } = await horoscopeResponse.json();
 
     res.render("profile", {
       ...user,
+      // 2) Pass the horoscope description to the view with "description: horoscope"
+      description: horoscope,
       logged_in: true,
     });
   } catch (err) {
