@@ -6,16 +6,22 @@
 
 * [User Story](#userStory)
 * [Usage & Contributions](#Contributions)
-* [License](#License)
 
+![Dragonfly Horoscopes-Main](public/assets/dragonflyHoroscopes.png)
+
+![Dragonfly Horoscopes-Login](public/assets/dragonflyHoroscopesLogin.png)
+
+![Dragonfly Horoscopes-Profile](public/assets/dragonflyHoroscopesProfile.png)
+
+* [License](#License)
 # User Story
-### AS A well rounded person who is in constant search of zen 
-### I WANT an application that takes in my birthday and provides a daily horoscope 
+### AS A well rounded person who is in constant search of zen
+### I WANT an application that takes in my birthday and provides a daily horoscope
 ### SO THAT I can access and store my past horoscopes in one place
 
 # License
 ### MIT: https://choosealicense.com/licenses/mit/
 
-# Usage & Contributions 
+# Usage & Contributions
 ### GitHub User Name: CFox2019, Omlawrence24, dboivert13
 ### Email: courtney.fox@me.com, boivertdaniel@gmail.com

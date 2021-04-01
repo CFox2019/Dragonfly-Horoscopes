@@ -15,19 +15,31 @@ header h1{
 h1 {
   color: #fff;
   font-family: 'Orbitron', sans-serif;
-  text-shadow: 2px 1px 2px #000;
+  text-shadow: 3px 3px 3px #000;
 }
 
 header a,
 header a:link,
 header a:visited,
 header a:hover,
-header a:active,
-a,
+header a:active {
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+  text-decoration: none;
+  text-shadow: 3px 3px 3px #000;
+}
+
+.container a,
+.container a:link,
+.container a:visited,
+.container a:hover,
+.container a:active,
 button {
   color: #fff;
+  font-family: 'Orbitron', sans-serif;
   text-decoration: none;
-  text-shadow: 2px 1px 2px #000;
+  text-shadow: 3px 3px 3px #000;
+  box-shadow: 5px 5px 5px #000;
 }
 
 main {
@@ -37,14 +49,8 @@ main {
 h2 {
   color: #fff;
   font-family: 'Orbitron', sans-serif;
-  text-shadow: 2px 1px 2px #000;
+  text-shadow: 3px 3px 3px #000;
   padding-bottom: 50px;
-}
-
-#profile-container h3 {
-  font-weight: bold;
-  text-decoration: underline;
-  padding-bottom: 20px;
 }
 
 .form-group {
@@ -62,6 +68,12 @@ form label, form .form-label {
 #profile-container {
   font-family: 'Handlee', cursive;
   opacity: 90%;
+}
+
+#profile-container h3 {
+  font-weight: bold;
+  text-decoration: underline;
+  padding-bottom: 20px;
 }
 
 #loggedin-btns {
