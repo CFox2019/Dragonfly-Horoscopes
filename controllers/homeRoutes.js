@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { User } = require("../models");
 const withAuth = require("../utils/auth");
-const fetch = require("node-fetch");
+const userHoroscopeHandler = require("./api/userHoroscopesHandler");
 
 router.get("/", async (req, res) => {
   try {
@@ -27,13 +27,13 @@ router.get("/profile", withAuth, async (req, res) => {
     const year = date.getFullYear();
     const month = ("0" + (date.getMonth() + 1)).slice(-2);
     const day = date.getDate();
-    const horoscopeResponse = await fetch(`http://localhost:3001/api/users/${req.session.user_id}/horoscopes/${year}-${month}-${day}`);
-    const { horoscope } = await horoscopeResponse.json();
+    const { horoscope }  = await userHoroscopeHandler(req.session.user_id, `${year}-${month}-${day}`);
 
     res.render("profile", {
       ...user,
       // 2) Pass the horoscope description to the view with "description: horoscope"
       description: horoscope,
+      date,
       logged_in: true,
     });
   } catch (err) {
