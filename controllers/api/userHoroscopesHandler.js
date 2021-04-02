@@ -24,7 +24,7 @@ const userHoroscopeHandler = async (userId, dateString) => {
     const month = date.getMonth() + 1;
     const day = date.getDate() + 1;
 
-    try  {
+    try {
 
       const response = await fetch(`https://horoscope5.p.rapidapi.com/general/daily?sign=${sign.toLowerCase()}&date=${year}-${month}-${day}`, {
         "method": "GET",
@@ -33,25 +33,28 @@ const userHoroscopeHandler = async (userId, dateString) => {
           "x-rapidapi-host": "horoscope5.p.rapidapi.com"
         }
       });
-      
-      const { result: { description } } = await response.json()
-      if (description.length === 0) {
+
+      const { result } = await response.json();
+      console.log(result)
+      if (!result.description) {
         throw new Error('No horoscope available for given date. Please try again later.')
       }
+
+
+      // 3a. Use the api response to create a NEW Horoscope record
+      const horoscope = await Horoscope.create({
+        user_id: userId,
+        horoscope: result.description,
+        date: result.date
+      });
+
+      // 3b. Send back the NEW record
+      return horoscope;
     } catch (e) {
       console.log(e);
-      response.status(500).json(e);
+      //we need to do something with this error object in the place where we are calling our handler
+      return e;
     }
-
-    // 3a. Use the api response to create a NEW Horoscope record
-    const horoscope = await Horoscope.create({
-      user_id: userId,
-      horoscope: description,
-      date
-    });
-
-    // 3b. Send back the NEW record
-    return horoscope;
   }
 }
 
