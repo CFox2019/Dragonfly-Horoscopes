@@ -33,9 +33,11 @@ const userHoroscopeHandler = async (userId, dateString) => {
           "x-rapidapi-host": "horoscope5.p.rapidapi.com"
         }
       });
+      
+      const horoscopeJson = await response.json();
+      const { result } = horoscopeJson;
       console.log("response:")
-      console.log(response);
-      const { result } = await response.json();
+      console.log(horoscopeJson);
       console.log(result)
       if (!result.description) {
         throw new Error('No horoscope available for given date. Please try again later.')
