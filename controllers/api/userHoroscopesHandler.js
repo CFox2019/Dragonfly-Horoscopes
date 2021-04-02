@@ -1,6 +1,6 @@
-const { response } = require("express");
 const fetch = require("node-fetch");
-const { User, Horoscope } = require("../../models")
+const { User, Horoscope } = require("../../models");
+const dateFormatter = require("../../utils/dateFormatter");
 
 const userHoroscopeHandler = async (userId, dateString) => {
   const date = new Date(dateString);
@@ -20,44 +20,30 @@ const userHoroscopeHandler = async (userId, dateString) => {
     return existingHoroscope
   } else {
     // 3. if we do NOT, call the rapidapi endpoint to go get that horoscope data
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
-    const day = date.getDate() + 1;
-
-    try {
-
-      const response = await fetch(`https://horoscope5.p.rapidapi.com/general/daily?sign=${sign.toLowerCase()}&date=${year}-${month}-${day}`, {
-        "method": "GET",
-        "headers": {
-          "x-rapidapi-key": "943065a783msh88656ce48d8ab8bp1c60dbjsn72e4fa775bb4",
-          "x-rapidapi-host": "horoscope5.p.rapidapi.com"
-        }
-      });
-      
-      const horoscopeJson = await response.json();
-      const { result } = horoscopeJson;
-      console.log("response:")
-      console.log(horoscopeJson);
-      console.log(result)
-      if (!result.description) {
-        throw new Error('No horoscope available for given date. Please try again later.')
+    const horoscopeDate = dateFormatter(date);
+    console.log('horoscopeDate', horoscopeDate);
+    const response = await fetch(`https://horoscope5.p.rapidapi.com/general/daily?sign=${sign.toLowerCase()}&date=${horoscopeDate}`, {
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-key": "943065a783msh88656ce48d8ab8bp1c60dbjsn72e4fa775bb4",
+        "x-rapidapi-host": "horoscope5.p.rapidapi.com"
       }
+    });
 
-
-      // 3a. Use the api response to create a NEW Horoscope record
-      const horoscope = await Horoscope.create({
-        user_id: userId,
-        horoscope: result.description,
-        date: result.date
-      });
-
-      // 3b. Send back the NEW record
-      return horoscope;
-    } catch (e) {
-      console.log(e);
-      //we need to do something with this error object in the place where we are calling our handler
-      return e;
+    const { result: { description } } = await response.json()
+    if (description.length === 0) {
+      throw new Error('No horoscope available for given date. Please try again later.')
     }
+
+    // 3a. Use the api response to create a NEW Horoscope record
+    const horoscope = await Horoscope.create({
+      user_id: userId,
+      horoscope: description,
+      date
+    });
+
+    // 3b. Send back the NEW record
+    return horoscope
   }
 }
 
