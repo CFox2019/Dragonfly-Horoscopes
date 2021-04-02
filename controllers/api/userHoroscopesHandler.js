@@ -37,13 +37,13 @@ const userHoroscopeHandler = async (userId, dateString) => {
 
     // 3a. Use the api response to create a NEW Horoscope record
     const horoscope = await Horoscope.create({
-      user_id: req.params.id,
+      user_id: userId,
       horoscope: description,
       date
     });
 
     // 3b. Send back the NEW record
-    return horoscope
+    return horoscope;
   }
 }
 
