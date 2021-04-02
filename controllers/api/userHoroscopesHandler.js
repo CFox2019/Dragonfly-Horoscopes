@@ -1,3 +1,4 @@
+const { response } = require("express");
 const fetch = require("node-fetch");
 const { User, Horoscope } = require("../../models")
 
@@ -22,17 +23,24 @@ const userHoroscopeHandler = async (userId, dateString) => {
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
     const day = date.getDate() + 1;
-    const response = await fetch(`https://horoscope5.p.rapidapi.com/general/daily?sign=${sign.toLowerCase()}&date=${year}-${month}-${day}`, {
-      "method": "GET",
-      "headers": {
-        "x-rapidapi-key": "943065a783msh88656ce48d8ab8bp1c60dbjsn72e4fa775bb4",
-        "x-rapidapi-host": "horoscope5.p.rapidapi.com"
-      }
-    });
 
-    const { result: { description } } = await response.json()
-    if (description.length === 0) {
-      throw new Error('No horoscope available for given date. Please try again later.')
+    try  {
+
+      const response = await fetch(`https://horoscope5.p.rapidapi.com/general/daily?sign=${sign.toLowerCase()}&date=${year}-${month}-${day}`, {
+        "method": "GET",
+        "headers": {
+          "x-rapidapi-key": "943065a783msh88656ce48d8ab8bp1c60dbjsn72e4fa775bb4",
+          "x-rapidapi-host": "horoscope5.p.rapidapi.com"
+        }
+      });
+      
+      const { result: { description } } = await response.json()
+      if (description.length === 0) {
+        throw new Error('No horoscope available for given date. Please try again later.')
+      }
+    } catch (e) {
+      console.log(e);
+      response.status(500).json(e);
     }
 
     // 3a. Use the api response to create a NEW Horoscope record
