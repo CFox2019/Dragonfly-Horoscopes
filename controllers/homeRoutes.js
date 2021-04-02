@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { User } = require("../models");
 const withAuth = require("../utils/auth");
 const userHoroscopeHandler = require("./api/userHoroscopesHandler");
+const dateFormatter = require("../utils/dateFormatter");
 
 router.get("/", async (req, res) => {
   try {
@@ -23,11 +24,9 @@ router.get("/profile", withAuth, async (req, res) => {
     const user = userData.get({ plain: true });
 
     // 1) Call the /api/horoscopes/:date endpoint to get the horoscope
-    const date = new Date();
-    const year = date.getFullYear();
-    const month = ("0" + (date.getMonth() + 1)).slice(-2);
-    const day = date.getDate();
-    const { horoscope }  = await userHoroscopeHandler(req.session.user_id, `${year}-${month}-${day}`);
+    const date = dateFormatter(new Date());
+    console.log("/profile date", date);
+    const { horoscope }  = await userHoroscopeHandler(req.session.user_id, date);
 
     res.render("profile", {
       ...user,
