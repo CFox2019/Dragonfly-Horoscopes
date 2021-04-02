@@ -33,7 +33,8 @@ const userHoroscopeHandler = async (userId, dateString) => {
           "x-rapidapi-host": "horoscope5.p.rapidapi.com"
         }
       });
-
+      console.log("response:")
+      console.log(response);
       const { result } = await response.json();
       console.log(result)
       if (!result.description) {
