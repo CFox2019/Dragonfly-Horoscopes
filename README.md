@@ -4,6 +4,7 @@
 # Description
 ### In our full-stack application `Dragonfly Horoscopes’ we combined  our back end server with a database, and API to take in a user profile that includes a birthdate to then provide a daily horoscope.  The application includes user authentication all displayed on an intuitive front end. Through the use of agile development methodologies, we collaborated to bring you DragonFly Horoscopes.
 
+## Table of Contents
 * [User Story](#userStory)
 * [Usage & Contributions](#Contributions)
 * [License](#License)
